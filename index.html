@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BondTrade Pro - AI-Powered P2P Bond Trading Platform</title>
+    <link rel="stylesheet" href="style-fixed.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app" class="app-container">
+        <!-- Header with Navigation -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="brand">
+                        <div class="logo">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="brand-text">
+                            <h1>BondTrade <span class="pro">PRO</span></h1>
+                            <span class="tagline">AI-Powered P2P Trading</span>
+                        </div>
+                    </div>
+                    
+                    <nav class="nav-tabs">
+                        <button class="nav-tab active" data-view="dashboard">
+                            <i class="fas fa-chart-area"></i>
+                            <span>Dashboard</span>
+                        </button>
+                        <button class="nav-tab" data-view="marketplace">
+                            <i class="fas fa-store"></i>
+                            <span>New Bonds</span>
+                        </button>
+                        <button class="nav-tab" data-view="p2p-marketplace">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span>P2P Market</span>
+                        </button>
+                        <button class="nav-tab" data-view="portfolio">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Portfolio</span>
+                        </button>
+                    </nav>
+                    
+                    <div class="user-section">
+                        <div class="balance-display">
+                            <span class="balance-label">Available Balance</span>
+                            <span class="balance-amount">₹<span id="user-balance">5,68,900</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- AI Status Bar -->
+        <div class="ai-status-bar">
+            <div class="container">
+                <div class="ai-status-content">
+                    <div class="ai-indicator">
+                        <div class="ai-pulse"></div>
+                        <span class="ai-text">AI Trading Engine</span>
+                        <span class="ai-status">ACTIVE</span>
+                    </div>
+                    <div class="reserve-info">
+                        <div class="reserve-item">
+                            <i class="fas fa-water"></i>
+                            <span>Reserve: ₹<span id="user-reserve">14,970</span></span>
+                        </div>
+                        <div class="reserve-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Window: <span id="window-status-text">Closed (11 days)</span></span>
+                        </div>
+                        <div class="reserve-item">
+                            <i class="fas fa-users"></i>
+                            <span>P2P Listings: <span id="p2p-count">24</span> active</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                <!-- Dashboard View -->
+                <div id="dashboard-view" class="view active">
+                    <div class="view-header">
+                        <h2>Portfolio Overview</h2>
+                        <p>AI insights and P2P trading opportunities</p>
+                    </div>
+                    
+                    <div class="dashboard-grid">
+                        <div class="overview-section">
+                            <div class="overview-cards">
+                                <div class="overview-card">
+                                    <div class="card-icon invested">
+                                        <i class="fas fa-coins"></i>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3>Total Invested</h3>
+                                        <div class="card-value">₹24,501</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="overview-card">
+                                    <div class="card-icon current">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3>Current Value</h3>
+                                        <div class="card-value">₹25,435</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="overview-card">
+                                    <div class="card-icon returns">
+                                        <i class="fas fa-arrow-up"></i>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3>Total Returns</h3>
+                                        <div class="card-value positive">+₹934</div>
+                                        <div class="card-percent">+3.8%</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="overview-card">
+                                    <div class="card-icon p2p">
+                                        <i class="fas fa-handshake"></i>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3>P2P Potential</h3>
+                                        <div class="card-value">₹26,124</div>
+                                        <div class="card-note">+₹689 via P2P</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="ai-insights-panel">
+                            <div class="ai-header">
+                                <h3><i class="fas fa-robot"></i> AI Market Insights</h3>
+                                <span class="ai-confidence">94% Accuracy</span>
+                            </div>
+                            <div class="insights-content">
+                                <div class="insight-item positive">
+                                    <div class="insight-icon">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </div>
+                                    <div class="insight-text">
+                                        <strong>P2P Opportunity:</strong> Earn 2.7% more through peer-to-peer trading
+                                    </div>
+                                </div>
+                                <div class="insight-item warning">
+                                    <div class="insight-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="insight-text">
+                                        <strong>Reserve Status:</strong> Window closed - P2P market active with premiums
+                                    </div>
+                                </div>
+                                <div class="insight-item info">
+                                    <div class="insight-icon">
+                                        <i class="fas fa-trending-up"></i>
+                                    </div>
+                                    <div class="insight-text">
+                                        <strong>Market Trend:</strong> High demand for banking bonds in P2P market
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio View -->
+                <div id="portfolio-view" class="view">
+                    <div class="view-header">
+                        <h2>My Portfolio</h2>
+                        <p>Manage your bonds with AI insights and P2P opportunities</p>
+                    </div>
+                    
+                    <div id="holdings-container" class="holdings-container">
+                        <!-- Holdings will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- New Bonds Marketplace -->
+                <div id="marketplace-view" class="view">
+                    <div class="view-header">
+                        <h2>New Bond Issues</h2>
+                        <p>Fresh bonds from issuers with AI predictions</p>
+                    </div>
+                    
+                    <div class="marketplace-controls">
+                        <div class="marketplace-filters">
+                            <button class="filter-btn active" data-filter="ALL">
+                                <i class="fas fa-list"></i> All Bonds
+                            </button>
+                            <button class="filter-btn" data-filter="HIGH">
+                                <i class="fas fa-fire"></i> High Yield
+                            </button>
+                            <button class="filter-btn" data-filter="MEDIUM">
+                                <i class="fas fa-balance-scale"></i> Medium Risk
+                            </button>
+                            <button class="filter-btn" data-filter="LOW">
+                                <i class="fas fa-shield"></i> Low Risk
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="bonds-grid" class="bonds-grid">
+                        <!-- New bonds will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- P2P Marketplace -->
+                <div id="p2p-marketplace-view" class="view">
+                    <div class="view-header">
+                        <h2>Peer-to-Peer Market</h2>
+                        <p>Trade bonds directly with other investors</p>
+                    </div>
+
+                    <!-- P2P Status Banner -->
+                    <div class="p2p-status-banner">
+                        <div class="status-section">
+                            <div class="status-indicator">
+                                <div class="pulse-dot"></div>
+                                <span class="status-text">P2P Trading Active</span>
+                            </div>
+                            <div class="market-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value">24</span>
+                                    <span class="stat-label">Active Listings</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">₹2.4M</span>
+                                    <span class="stat-label">Total Volume</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">97%</span>
+                                    <span class="stat-label">Success Rate</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="actions-section">
+                            <button class="btn btn-primary btn-list" id="list-my-bonds-btn">
+                                <i class="fas fa-plus"></i> List My Bonds
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- P2P Filters -->
+                    <div class="p2p-controls">
+                        <div class="p2p-filters">
+                            <button class="p2p-filter-btn active" data-p2p-filter="all">
+                                <i class="fas fa-th-large"></i> All Listings
+                            </button>
+                            <button class="p2p-filter-btn" data-p2p-filter="premium">
+                                <i class="fas fa-crown"></i> Premium Bonds
+                            </button>
+                            <button class="p2p-filter-btn" data-p2p-filter="quick-sale">
+                                <i class="fas fa-bolt"></i> Quick Sale
+                            </button>
+                            <button class="p2p-filter-btn" data-p2p-filter="high-yield">
+                                <i class="fas fa-fire"></i> High Yield
+                            </button>
+                        </div>
+                        <div class="sort-section">
+                            <select class="sort-select" id="p2p-sort">
+                                <option value="yield-desc">Highest Yield</option>
+                                <option value="price-asc">Lowest Price</option>
+                                <option value="rating-desc">Best Rating</option>
+                                <option value="time-desc">Latest Listed</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div id="p2p-listings-grid" class="p2p-listings-grid">
+                        <!-- P2P listings will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- List Bond Modal -->
+        <div id="list-modal" class="modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-tags"></i> List Bond for Sale</h3>
+                    <button class="close-btn" id="close-list-modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                    <div class="form-section">
+                        <label class="form-label">Select Bond to List</label>
+                        <select id="list-bond-select" class="form-select">
+                            <option value="">Choose a bond from your portfolio...</option>
+                        </select>
+                    </div>
+
+                    <div id="listing-preview" class="listing-preview" style="display: none;">
+                        <div class="preview-header">
+                            <h4 id="preview-bond-name">Bond Name</h4>
+                            <div class="preview-details" id="preview-bond-details">Bond details</div>
+                        </div>
+
+                        <div class="listing-config">
+                            <div class="config-group">
+                                <label class="config-label">Quantity to List</label>
+                                <div class="input-group">
+                                    <input type="number" id="list-quantity" class="form-input" min="1">
+                                    <button class="btn btn-secondary btn-sm" id="set-max-quantity">ALL</button>
+                                </div>
+                                <div class="input-info">
+                                    Available: <span id="list-available-quantity">0</span> units
+                                </div>
+                            </div>
+
+                            <div class="config-group">
+                                <label class="config-label">Listing Price per Unit</label>
+                                <div class="input-group">
+                                    <input type="number" id="list-price" class="form-input" step="0.01">
+                                    <button class="btn btn-secondary btn-sm" id="set-market-price">Market</button>
+                                </div>
+                                <div class="price-suggestions">
+                                    <button class="price-suggestion active" data-premium="0">Market Price</button>
+                                    <button class="price-suggestion" data-premium="2">+2% Premium</button>
+                                    <button class="price-suggestion" data-premium="5">+5% Premium</button>
+                                </div>
+                            </div>
+
+                            <div class="config-group">
+                                <label class="config-label">Listing Duration</label>
+                                <div class="duration-options">
+                                    <button class="duration-btn active" data-days="7">7 Days</button>
+                                    <button class="duration-btn" data-days="14">14 Days</button>
+                                    <button class="duration-btn" data-days="30">30 Days</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="listing-summary">
+                            <div class="summary-row">
+                                <span>Listing Value</span>
+                                <span id="listing-total-value">₹0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Platform Fee (0.5%)</span>
+                                <span id="listing-platform-fee">₹0</span>
+                            </div>
+                            <div class="summary-row summary-total">
+                                <span><strong>You'll Receive</strong></span>
+                                <span id="listing-net-amount"><strong>₹0</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="cancel-listing">Cancel</button>
+                    <button class="btn btn-primary" id="confirm-listing-btn" disabled>
+                        <i class="fas fa-tags"></i> List for Sale
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buy Modal -->
+        <div id="buy-modal" class="modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-shopping-cart"></i> Purchase Bond</h3>
+                    <button class="close-btn" id="close-buy-modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                    <div class="buy-bond-info">
+                        <h4 id="buy-bond-name">Bond Name</h4>
+                        <div class="buy-bond-details">
+                            <span id="buy-bond-price">Price</span>
+                            <span id="buy-bond-yield">Yield</span>
+                        </div>
+                        <div class="buy-bond-type" id="buy-bond-type">
+                            <!-- Shows if it's P2P or new issue -->
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <label class="form-label">Investment Amount</label>
+                        <div class="input-group">
+                            <input type="number" id="buy-quantity" class="form-input" min="1" value="1">
+                            <span class="input-unit">units</span>
+                        </div>
+                        <div class="input-info">
+                            Available: <span id="buy-max-available">1000</span> units
+                        </div>
+                    </div>
+                    
+                    <div class="cost-breakdown">
+                        <div class="breakdown-header">
+                            <h5>Cost Breakdown</h5>
+                        </div>
+                        <div class="breakdown-table">
+                            <div class="breakdown-row">
+                                <span>Subtotal</span>
+                                <span id="buy-subtotal">₹945.60</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span>Platform Fee</span>
+                                <span id="buy-platform-fee">₹0.00</span>
+                            </div>
+                            <div class="breakdown-row breakdown-total">
+                                <span><strong>Total Amount</strong></span>
+                                <span id="buy-total"><strong>₹945.60</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="cancel-buy">Cancel</button>
+                    <button class="btn btn-primary" id="proceed-payment">
+                        <i class="fas fa-credit-card"></i> Proceed to Payment
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Toast -->
+        <div id="success-toast" class="toast success">
+            <div class="toast-content">
+                <i class="fas fa-check-circle"></i>
+                <span id="success-message">Transaction completed successfully!</span>
+            </div>
+        </div>
+
+        <!-- Error Toast -->
+        <div id="error-toast" class="toast error">
+            <div class="toast-content">
+                <i class="fas fa-exclamation-circle"></i>
+                <span id="error-message">An error occurred</span>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="loading-overlay">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <div class="loading-text">Processing your request...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="ai.js"></script>
+    <script src="app-fixed.js"></script>
+</body>
+</html>

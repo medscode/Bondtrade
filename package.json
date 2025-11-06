@@ -1,0 +1,83 @@
+{
+  "name": "bondtrade-pro",
+  "version": "1.0.0",
+  "description": "AI-Powered Bond Trading Platform with Reserve Fund Management",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server . -p 8080 -c-1 -o",
+    "dev": "live-server --port=8080 --open=index.html",
+    "build": "npm run minify-css && npm run minify-js",
+    "minify-css": "cleancss -o style.min.css style.css",
+    "minify-js": "uglifyjs app.js ai.js -c -m -o bundle.min.js",
+    "lint": "eslint *.js",
+    "format": "prettier --write *.html *.css *.js *.md",
+    "test": "jest",
+    "validate": "html-validate index.html"
+  },
+  "keywords": [
+    "bonds",
+    "trading",
+    "fintech",
+    "ai",
+    "liquidity",
+    "investment",
+    "portfolio"
+  ],
+  "author": "BondTrade Pro Team",
+  "license": "MIT",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "eslint": "^8.45.0",
+    "html-validate": "^7.17.0",
+    "http-server": "^14.1.1",
+    "jest": "^29.6.1",
+    "live-server": "^1.2.2",
+    "prettier": "^3.0.0",
+    "uglify-js": "^3.17.4"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/bondtrade-pro.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/bondtrade-pro/issues"
+  },
+  "homepage": "https://your-username.github.io/bondtrade-pro",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": ["<rootDir>/test/setup.js"]
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": [
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2021,
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-console": "warn",
+      "no-unused-vars": "error",
+      "prefer-const": "error"
+    }
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "printWidth": 100,
+    "tabWidth": 2
+  }
+}
